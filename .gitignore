@@ -187,3 +187,4 @@ dist
 deb_dist
 b35t.egg-info
 *.gz
+.directory
