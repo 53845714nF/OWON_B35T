@@ -2,10 +2,13 @@
 
 Connect to the Device with: `gatttool -I <Mac Address>`
 
-Then you get 6 Byte:
+Following this operation, you'll receive 6 bytes of data. These bytes need to be split into 2-byte chunks for interpretation
 
-For reading you have to split in to 2 Byte of the Input.
-The first 2 Byte present the scale, measure, decimal Point Position.
+## First 2 Bytes
+The first 2 bytes represent the scale, measurement, and decimal point position.
+To elaborate further: The initial two bytes you receive encode crucial information about the nature of the measurement.
+The scale indicates the magnitude or unit of measurement, such as nano, micro, milli, kilo, or mega.
+
 
 | Number | Value of scale |
 | :----- | :------------: |
@@ -14,6 +17,9 @@ The first 2 Byte present the scale, measure, decimal Point Position.
 | 3      |   m (milli )   |
 | 5      |    k (kilo)    |
 | 6      |    M (mega)    |
+
+## Second 2 Bytes 
+The second two bytes represent the function of the multimeter.
 
 | Number | Value of measure |
 | :----- | :--------------: |
@@ -30,7 +36,8 @@ The first 2 Byte present the scale, measure, decimal Point Position.
 | 11     |       Ohms       |
 | 12     |       hFE        |
 
-The second two bytes represent the function. 
+## Last 2 Bytes
+The final two bytes represent additional information about the value displayed on the multimeter.
 
 | Number | Value of function |
 | :----- | :---------------: |
@@ -41,4 +48,3 @@ The second two bytes represent the function.
 | 16     |        min        |
 | 32     |        max        |
 
-The last two bytes represent the value that can be seen on the multimeter. 
