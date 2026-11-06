@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "b35t"
+version = "1.0.0"
+description = "Tool to connect to B35T+."
+readme = "Readme.md"
+requires-python = ">=3.8"
+license = "MIT"
+authors = [
+    { name = "Sebastian", email = "hackwiki2.0@gmail.com" }
+]
+dependencies = [
+    "pexpect",
+    "ptyprocess",
+]
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Environment :: Console",
+    "Operating System :: POSIX :: Linux",
+]
+
+[project.scripts]
+b35t = "b35t.b35t:main"
+
+[tool.setuptools]
+packages = ["b35t"]
