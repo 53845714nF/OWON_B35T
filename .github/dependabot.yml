@@ -1,0 +1,12 @@
+version: 2
+
+updates:
+  # Python dependencies
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "dependencies"
+    commit-message:
+      prefix: "deps"
